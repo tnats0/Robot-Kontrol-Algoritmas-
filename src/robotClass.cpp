@@ -1,40 +1,31 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
+#include <Arduino.h>
 #include <SoftwareSerial.h>
 #include <SparkFun_TB6612.h>
-#include <Arduino.h>
 
 using namespace std;
 
-#define motorRileri D1
-#define motorRgeri  D2
-#define motorRhiz A1
-
-
-#define motorLileri D3
-#define motorLgeri D4
-#define motorLhiz A2
-
-void setup() {
-
-  pinMode(motorRileri,OUTPUT);
-  pinMode(motorRgeri,OUTPUT);
-  pinMode(motorRhiz,OUTPUT);
-
-  pinMode(motorLileri,OUTPUT);
-  pinMode(motorLgeri,OUTPUT);
-  pinMode(motorLhiz,OUTPUT);
-
-}
+// -- Class Structure -- //
 
 class Robot{
 
     private:
     
+        int motorRileri;
+        int motorRgeri;
+        int motorRhiz;
+
+        int motorLileri;
+        int motorLgeri;
+        int motorLhiz;
+
+
         int hiz;
         char yon; 
+
+    public:
 
         void ileri(int hiz);
         void geri(int hiz);
@@ -44,16 +35,25 @@ class Robot{
 
         void navigateAndMove(int hiz , char yon);
 
-        Robot(int varsayilanHiz,int varsayilanYon){
-
-            hiz = varsayilanHiz;
-            yon = varsayilanYon; 
-
+        Robot(int r1, int r2, int rh, int l1, int l2, int lh){
+    
+            
+            int motorRileri = r1;
+            int motorRgeri = r2;
+            int motorRhiz = rh;
+    
+            int motorLileri = l1;
+            int motorLgeri = l2;
+            int motorLhiz = lh;
+    
         }
+        
+
+
 
 };
 
-
+// -- Functions -- //
 
 void Robot::ileri(int hiz) {
 
@@ -138,3 +138,13 @@ void Robot::navigateAndMove(int hiz,char yon){
 
 }
 
+// -- Test -- //
+
+
+int main() {
+    
+    Robot altayBot = Robot(D1,D2,A1,D4,D5,A2);
+
+
+    return 0;
+}

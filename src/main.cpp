@@ -5,7 +5,7 @@
 #include <SoftwareSerial.h>
 #include <SparkFun_TB6612.h>
 
-#define motorRileri D1
+int motorRileri = D1;
 #define motorRgeri  D2
 #define motorRhiz A1
 
@@ -18,12 +18,8 @@
 
 
 // put function declarations here:
-void ileri(int);
 
   
-
-
-
 void setup() {
   // put your setup code here, to run once:
 
@@ -34,6 +30,7 @@ void setup() {
   pinMode(motorLileri,OUTPUT);
   pinMode(motorLgeri,OUTPUT);
   pinMode(motorLhiz,OUTPUT);
+
 
 }
 
