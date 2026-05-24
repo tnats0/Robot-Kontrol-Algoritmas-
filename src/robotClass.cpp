@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 #include <SparkFun_TB6612.h>
@@ -33,7 +30,7 @@ class Robot{
         void sol(int hiz);
         void dur();
 
-        void navigateAndMove(int hiz , char yon);
+        void hareteGec(int hiz , char yon);
 
         Robot(int r1, int r2, int rh, int l1, int l2, int lh){
     
@@ -110,7 +107,7 @@ void Robot::dur(){
 
 }
 
-void Robot::navigateAndMove(int hiz,char yon){
+void Robot::hareteGec(int hiz,char yon){
 
       switch (yon)
       {
@@ -145,6 +142,11 @@ int main() {
     
     Robot altayBot = Robot(D1,D2,A1,D4,D5,A2);
 
-
     return 0;
 }
+
+
+/* 
+AltayBot, HC06 Buletooth modülünden aldığı verilerle hızını ve yönünü ayarlayarak operatörün yönlendirdiği yere gidecektir.
+Yukarıda görmüş olduğunuz sınıf yapısı henüz çok erken aşamalrdadır ve robot kolun algoritmaları bulunmamaktadır. Eksikler projenin ilerleyen süreçlerinde giderilecektir.
+*/
